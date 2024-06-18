@@ -2,8 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader' 
 
 get '/' do
-  erb :index
   @memo = "メモ：テスト"
+  erb :index
 end
 
 # get '/' do
