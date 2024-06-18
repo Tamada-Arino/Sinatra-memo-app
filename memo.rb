@@ -1,27 +1,34 @@
 require 'sinatra'
 require 'sinatra/reloader' 
+require 'csv'
 
 get '/' do
-  @memo = "メモ：テスト"
+  @memos = CSV.read('memos.csv', headers: true, header_converters: :symbol)
   erb :index
 end
 
-# get '/' do
-#   "memo 作成画面"
-# end
+get '/memos/new' do
+  erb :new
+end
 
-# get '/' do
-#   "めも詳細"
-# end
+get '/memos/:id' do
+  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[params[:id].to_i]
+  erb :show
+end
 
-# post '/' do
-#   "めも投稿"
-# end
+post '/memos' do
+#   メモ投稿処理
+end
 
-# patch '/' do
-#   "メモ修正"
-# end
+get '/memos/:id/edit' do
+#   メモ修正画面
+  erb :edit
+end
 
-# delete '/' do
-#   "めもけす"
-# end
+patch '/memos/:id' do
+#   メモ修正処理
+end
+
+delete '/memos/:id' do
+#   メモ削除処理
+end

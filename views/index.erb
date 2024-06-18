@@ -1,1 +1,10 @@
-<%= @memo %>
+<ul>
+<% @memos.each do |memo| %>
+  <li>
+    <a href="/memos/<%= memo[:id].to_i %>">
+      <%= memo[:title] %>
+    </a>
+  </li>
+<% end %>
+</ul>
+<a href="/memos/new">新規作成</a>
