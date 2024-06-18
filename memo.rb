@@ -12,12 +12,16 @@ get '/memos/new' do
 end
 
 get '/memos/:id' do
-  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[params[:id].to_i]
+  @id = params[:id].to_i
+  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
   erb :show
 end
 
 post '/memos' do
-#   メモ投稿処理
+  CSV.open('memos.csv', 'a') do |csv|
+    csv << [params[:title], params[:text]]
+  end
+  redirect '/'
 end
 
 get '/memos/:id/edit' do
