@@ -4,4 +4,4 @@
 <p>
   <%= @memo[:text] %>
 </p>
-<a href="/">戻る</a>
+<a href="/memos/<%= @memo[:id].to_i %>/edit" class="btn btn-secondary">変更</a>
