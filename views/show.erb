@@ -1,7 +1,14 @@
+<div class="my-5">
 <h3>
   <%= @memo[:title] %>
 </h3>
 <p>
   <%= @memo[:text] %>
 </p>
-<a href="/memos/<%= @memo[:id].to_i %>/edit" class="btn btn-secondary">変更</a>
+</div>
+<div class="d-flex">
+  <a href="/memos/<%= @id %>/edit" class="btn btn-secondary">変更</a>
+  <form action="/memos/<%= @id %>" method="DELETE">
+    <input type="submit" class="btn btn-danger" value="削除">
+  </form>
+</div>
