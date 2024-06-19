@@ -1,0 +1,20 @@
+current directory: /Users/tamadaarino/Documents/FBC/sinatra_memo_app/vendor/bundle/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+/Users/tamadaarino/.rbenv/versions/3.3.1/bin/ruby extconf.rb
+checking for onig_region_memsize() in ruby.h... yes
+checking for rb_reg_onig_match() in ruby.h... yes
+creating Makefile
+
+current directory: /Users/tamadaarino/Documents/FBC/sinatra_memo_app/vendor/bundle/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20240619-10442-vaqrhy sitelibdir\=./.gem.20240619-10442-vaqrhy clean
+
+current directory: /Users/tamadaarino/Documents/FBC/sinatra_memo_app/vendor/bundle/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20240619-10442-vaqrhy sitelibdir\=./.gem.20240619-10442-vaqrhy
+compiling strscan.c
+linking shared-object strscan.bundle
+
+current directory: /Users/tamadaarino/Documents/FBC/sinatra_memo_app/vendor/bundle/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20240619-10442-vaqrhy sitelibdir\=./.gem.20240619-10442-vaqrhy install
+/usr/bin/install -c -m 0755 strscan.bundle ./.gem.20240619-10442-vaqrhy
+
+current directory: /Users/tamadaarino/Documents/FBC/sinatra_memo_app/vendor/bundle/ruby/3.3.0/gems/strscan-3.1.0/ext/strscan
+make DESTDIR\= sitearchdir\=./.gem.20240619-10442-vaqrhy sitelibdir\=./.gem.20240619-10442-vaqrhy clean
