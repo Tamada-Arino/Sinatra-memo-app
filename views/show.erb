@@ -7,9 +7,9 @@
 </p>
 </div>
 <div class="d-flex">
-  <a href="/memos/<%= @id %>/edit" class="btn btn-secondary">変更</a>
+  <a href="/memos/<%= @id %>/edit" class="btn btn-secondary px-4">変更</a>
   <form action="/memos/<%= @id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" class="btn btn-danger mx-2" value="削除">
+    <input type="submit" class="btn btn-danger mx-2 px-4" value="削除">
   </form>
 </div>
