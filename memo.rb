@@ -25,12 +25,21 @@ post '/memos' do
 end
 
 get '/memos/:id/edit' do
-#   メモ修正画面
+  @id = params[:id].to_i
+  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
   erb :edit
 end
 
 patch '/memos/:id' do
-#   メモ修正処理
+  id = params[:id].to_i
+  memos = CSV.table('memos.csv')
+  memos[id][:title] = params[:title]
+  memos[id][:text] = params[:text]
+  CSV.open('memos.csv', 'w') do |csv|
+    csv << memos.headers
+    memos.each { |memo| csv << memo }
+  end
+  redirect "/memos/#{id}"
 end
 
 delete '/memos/:id' do
