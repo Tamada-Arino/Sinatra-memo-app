@@ -1,7 +1,7 @@
-<a href="/memos/new" class="btn btn-primary">新規作成</a>
+<a href="/memos/new" class="btn btn-primary my-3">新規作成</a>
 <ul>
 <% @memos.each_with_index do |memo, index| %>
-  <li>
+  <li class="my-2">
     <a href="/memos/<%= index %>">
       <%= memo[:title] %>
     </a>
