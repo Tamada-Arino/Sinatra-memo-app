@@ -26,8 +26,8 @@ get '/memos/:id' do
 end
 
 post '/memos' do
-  if params[:title].nil? || params[:title] == "" || params[:text].nil? || params[:text] == ""
-    @alert = 'タイトルとテキストは両方入力してください'
+  if params[:title].nil? || params[:title] == ''
+    @alert = 'タイトルを入力してください'
     halt erb :new
   else
     CSV.open('memos.csv', 'a') do |csv|
@@ -44,8 +44,8 @@ get '/memos/:id/edit' do
 end
 
 patch '/memos/:id' do
-  if params[:title].nil? || params[:title] == "" || params[:text].nil? || params[:text] == ""
-    @alert = 'タイトルとテキストは両方入力してください'
+  if params[:title].nil? || params[:title] == ''
+    @alert = 'タイトルを入力してください'
     @id = params[:id].to_i
     @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
     halt erb :edit
