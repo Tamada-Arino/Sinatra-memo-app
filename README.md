@@ -12,13 +12,22 @@ CRUD操作を実装しています。
 $ git clone -b develop https://github.com/Tamada-Arino/Sinatra-memo-app.git
 ```
 
-3. 
-ジェムをインストールします。
+3. 以下を実行してアプリケーションのディレクトリに入ります。
+```
+$ cd Sinatra-memo-app
+```
+
+4. ジェムをインストールします。
 ```
 $ bundle install
 ```
 
-4. 任意のブラウザで以下にアクセスします。
+5. 以下を実行して
+```
+$ ruby memo.rb
+```
+
+6. 任意のブラウザで以下にアクセスします。
 ```
 http://localhost:4567/
 ```
