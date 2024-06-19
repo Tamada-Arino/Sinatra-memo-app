@@ -43,5 +43,12 @@ patch '/memos/:id' do
 end
 
 delete '/memos/:id' do
-#   メモ削除処理
+  id = params[:id].to_i
+  memos = CSV.table('memos.csv')
+  memos.delete(id)
+  CSV.open('memos.csv', 'w') do |csv|
+    csv << memos.headers
+    memos.each { |memo| csv << memo }
+  end
+  redirect '/'
 end
