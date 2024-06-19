@@ -72,3 +72,7 @@ delete '/memos/:id' do
   end
   redirect '/'
 end
+
+not_found do
+  erb :not_found
+end
