@@ -19,7 +19,7 @@ $ git clone -b develop https://github.com/Tamada-Arino/Sinatra-memo-app.git
 $ cd Sinatra-memo-app
 ```
 
-4. ジェムをインストールします。
+4. Gemをインストールします。
 ```
 $ bundle install
 ```
