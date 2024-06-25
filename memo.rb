@@ -31,7 +31,7 @@ post '/memos' do
     halt erb :new
   else
     CSV.open('memos.csv', 'a') do |csv|
-      csv << [h(params[:title]), h(params[:text])]
+      csv << [params[:title], params[:text]]
     end
     redirect '/'
   end
@@ -52,8 +52,8 @@ patch '/memos/:id' do
   else
     id = params[:id].to_i
     memos = CSV.table('memos.csv')
-    memos[id][:title] = h(params[:title])
-    memos[id][:text] = h(params[:text])
+    memos[id][:title] = params[:title]
+    memos[id][:text] = params[:text]
     CSV.open('memos.csv', 'w') do |csv|
       csv << memos.headers
       memos.each { |memo| csv << memo }
