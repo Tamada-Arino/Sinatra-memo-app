@@ -19,17 +19,22 @@ $ git clone -b develop https://github.com/Tamada-Arino/Sinatra-memo-app.git
 $ cd Sinatra-memo-app
 ```
 
-4. Gemをインストールします。
+4. メモの初期データを作成します
+```
+echo "title,text" > memos.csv
+```
+
+5. Gemをインストールします。
 ```
 $ bundle install
 ```
 
-5. アプリケーションを実行します。
+6. アプリケーションを実行します。
 ```
 $ bundle exec ruby memo.rb
 ```
 
-6. 任意のブラウザで以下にアクセスします。
+7. 任意のブラウザで以下にアクセスします。
 ```
 http://localhost:4567/
 ```
