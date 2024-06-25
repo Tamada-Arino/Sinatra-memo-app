@@ -3,7 +3,7 @@
 <% @memos.each_with_index do |memo, index| %>
   <li class="my-2">
     <a href="/memos/<%= index %>">
-      <%= memo[:title] %>
+      <%= h(memo[:title]) %>
     </a>
   </li>
 <% end %>
