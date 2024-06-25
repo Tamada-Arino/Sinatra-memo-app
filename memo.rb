@@ -54,7 +54,7 @@ patch '/memos/:id' do
     memos = CSV.table('memos.csv')
     memos[id][:title] = params[:title]
     memos[id][:text] = params[:text]
-    csv_reset(memos)
+    csv_rewrite(memos)
     redirect "/memos/#{id}"
   end
 end
@@ -63,7 +63,7 @@ delete '/memos/:id' do
   id = params[:id].to_i
   memos = CSV.table('memos.csv')
   memos.delete(id)
-  csv_reset(memos)
+  csv_rewrite(memos)
   redirect '/'
 end
 
@@ -77,7 +77,7 @@ def memo_title_invalid?(title)
   true if title.nil? || title == ''
 end
 
-def csv_reset(memos)
+def csv_rewrite(memos)
   CSV.open('memos.csv', 'w') do |csv|
     csv << memos.headers
     memos.each { |memo| csv << memo }
