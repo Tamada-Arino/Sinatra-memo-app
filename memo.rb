@@ -26,7 +26,7 @@ get '/memos/:id' do
 end
 
 post '/memos' do
-  if memo_title_valid?(params[:title])
+  if memo_title_invalid?(params[:title])
     @alert = 'タイトルを入力してください'
     halt erb :new
   else
@@ -44,7 +44,7 @@ get '/memos/:id/edit' do
 end
 
 patch '/memos/:id' do
-  if memo_title_valid?(params[:title])
+  if memo_title_invalid?(params[:title])
     @alert = 'タイトルを入力してください'
     @id = params[:id].to_i
     @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
@@ -79,6 +79,6 @@ end
 
 private
 
-def memo_title_valid?(title)
+def memo_title_invalid?(title)
   true if title.nil? || title == ''
 end
