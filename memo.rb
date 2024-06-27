@@ -74,7 +74,7 @@ end
 private
 
 def memo_title_invalid?(title)
-  true if title.nil? || title == ''
+  title.nil? || title == ''
 end
 
 def csv_read_all
