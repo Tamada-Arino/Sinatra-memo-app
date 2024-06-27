@@ -11,7 +11,7 @@ helpers do
 end
 
 get '/' do
-  @memos = CSV.read('memos.csv', headers: true, header_converters: :symbol)
+  @memos = csv_read_all
   erb :index
 end
 
@@ -21,7 +21,7 @@ end
 
 get '/memos/:id' do
   @id = params[:id].to_i
-  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
+  @memo = csv_read_all[@id]
   erb :show
 end
 
@@ -39,7 +39,7 @@ end
 
 get '/memos/:id/edit' do
   @id = params[:id].to_i
-  @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
+  @memo = csv_read_all[@id]
   erb :edit
 end
 
@@ -47,7 +47,7 @@ patch '/memos/:id' do
   if memo_title_invalid?(params[:title])
     @alert = 'タイトルを入力してください'
     @id = params[:id].to_i
-    @memo = CSV.read('memos.csv', headers: true, header_converters: :symbol)[@id]
+    @memo = csv_read_all[@id]
     halt erb :edit
   else
     id = params[:id].to_i
@@ -75,6 +75,10 @@ private
 
 def memo_title_invalid?(title)
   true if title.nil? || title == ''
+end
+
+def csv_read_all
+  CSV.read('memos.csv', headers: true, header_converters: :symbol)
 end
 
 def csv_rewrite(memos)
